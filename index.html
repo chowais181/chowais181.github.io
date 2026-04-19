@@ -1,43 +1,37 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Muhammad Awais Zahid - Senior Software Engineer</title>
+    <title>Muhammad Awais Zahid — Senior Software Engineer</title>
     <meta
       name="keywords"
       content="Muhammad Awais Zahid, Senior Software Engineer, Full Stack Developer, React, Next.js, NestJS, Node.js, Django, MERN Stack"
     />
     <meta
       name="description"
-      content="Portfolio of Muhammad Awais Zahid, Senior Software Engineer specializing in full-stack development with React, Next.js, NestJS, and Django."
+      content="Portfolio of Muhammad Awais Zahid — Senior Software Engineer specializing in full-stack development, AI integration, and scalable enterprise products."
     />
     <link rel="icon" id="dynamic-favicon" type="image/png" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Google Fonts: Syne (headings) + DM Sans (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
-
-    <!-- Bootstrap (nav collapse JS still needed) -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -53,22 +47,21 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
     <meta
       property="og:title"
-      content="Muhammad Awais Zahid - Senior Software Engineer"
+      content="Muhammad Awais Zahid — Senior Software Engineer"
     />
     <meta property="og:image" content="Images/profile.png" />
-    <!-- Rounded favicon via canvas -->
+
     <script>
       (function () {
         var img = new Image();
         img.crossOrigin = "anonymous";
         img.onload = function () {
-          var size = 64;
-          var canvas = document.createElement("canvas");
+          var size = 64,
+            canvas = document.createElement("canvas");
           canvas.width = size;
           canvas.height = size;
           var ctx = canvas.getContext("2d");
@@ -77,8 +70,8 @@
           ctx.closePath();
           ctx.clip();
           ctx.drawImage(img, 0, 0, size, size);
-          var link = document.getElementById("dynamic-favicon");
-          link.href = canvas.toDataURL("image/png");
+          document.getElementById("dynamic-favicon").href =
+            canvas.toDataURL("image/png");
         };
         img.src = "Images/profile.png";
       })();
@@ -86,7 +79,7 @@
   </head>
 
   <body>
-    <!-- ── NAVBAR ── -->
+    <!-- NAVBAR -->
     <nav id="myNavbar" class="navbar navbar-expand-lg navbar-dark sticky-top">
       <a class="navbar-brand" href="index.html"
         >Awais<span class="brand-accent">.</span></a
@@ -158,13 +151,20 @@
             data-toggle="collapse"
             data-target=".navbar-collapse.show"
           >
+            <a class="nav-link" href="#certifications">Certifications</a>
+          </li>
+          <li
+            class="nav-item"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+          >
             <a class="nav-link nav-cta" href="#contact">Contact</a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <!-- ── HERO ── -->
+    <!-- HERO -->
     <section id="home" class="hero">
       <div class="hero-noise"></div>
       <div class="hero-grid">
@@ -174,27 +174,25 @@
             AI/ML</span
           >
           <h1>
-            Designing scalable web products that combine modern frontend,
-            cloud-native backend, and intelligent AI workflows.
+            Crafting scalable web products that blend modern frontend,
+            cloud-native backend, and intelligent AI.
           </h1>
           <p>
-            Full Stack Software Engineer with 4+ years of experience building
-            enterprise platforms using React, Next.js, NestJS, Node.js, and
-            Django. I deliver polished user experiences, robust APIs, and
-            AI-infused applications with a focus on speed and maintainability.
+            Full Stack Software Engineer with <strong>4+ years</strong> of
+            experience building enterprise platforms using React, Next.js,
+            NestJS, Node.js, and Django. Vetted by <strong>Micro1</strong> as a
+            top-tier senior engineer delivering polished UX, robust APIs, and
+            AI-infused products.
           </p>
-
           <div class="hero-actions">
             <a
               href="Muhammad_Awais_Zahid_Resume.pdf"
               class="btn-primary"
               target="_blank"
+              ><i class="fas fa-file-pdf"></i>&nbsp; View Resume</a
             >
-              <i class="fas fa-file-pdf"></i>&nbsp; View Resume
-            </a>
             <a href="#myWork" class="btn-secondary">Explore Projects</a>
           </div>
-
           <div class="hero-links">
             <a
               href="mailto:zahidawais98@gmail.com"
@@ -202,7 +200,11 @@
               aria-label="Email"
               ><i class="far fa-envelope"></i
             ></a>
-            <a href="tel:+923126857475" class="icon-link" aria-label="WhatsApp"
+            <a
+              href="https://wa.me/923126857475"
+              target="_blank"
+              class="icon-link"
+              aria-label="WhatsApp"
               ><i class="fab fa-whatsapp"></i
             ></a>
             <a
@@ -220,7 +222,6 @@
               ><i class="fab fa-github-alt"></i
             ></a>
           </div>
-
           <div class="hero-pill-list">
             <span class="pill">React</span>
             <span class="pill">Next.js</span>
@@ -228,6 +229,7 @@
             <span class="pill">GraphQL</span>
             <span class="pill">Docker</span>
             <span class="pill">LLM</span>
+            <span class="pill">Django</span>
           </div>
         </div>
 
@@ -244,9 +246,8 @@
                 Enterprise products with AI intelligence
               </h3>
               <p class="card-description">
-                I build responsive systems for billing, healthcare, commerce,
-                and AI chat interfaces with modern architectures and smart
-                automation.
+                Building billing, healthcare, commerce, and AI chat products
+                with modern architecture and smart automation.
               </p>
               <div class="card-meta">
                 <span
@@ -257,50 +258,126 @@
                   ><i class="fas fa-check-circle"></i> Cloud-ready
                   platforms</span
                 >
+                <span
+                  ><i class="fas fa-check-circle"></i> Micro1 Certified</span
+                >
+                <span
+                  ><i class="fas fa-check-circle"></i> 6+ shipped products</span
+                >
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="scroll-indicator">
-        <span></span>
+      <div class="hero-stats reveal-section">
+        <div class="stat-item">
+          <span class="stat-number">4+</span
+          ><span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">6+</span
+          ><span class="stat-label">Products Shipped</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">10+</span
+          ><span class="stat-label">Technologies</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span
+          ><span class="stat-label">Client Satisfaction</span>
+        </div>
       </div>
+
+      <div class="scroll-indicator"><span></span></div>
     </section>
 
-    <!-- ── ABOUT ── -->
+    <!-- ABOUT -->
     <section id="aboutMe" class="section reveal-section">
       <div class="section-intro">
         <span class="section-label">About Me</span>
         <h2>Crafting software that scales, performs, and lasts.</h2>
       </div>
-      <div class="about-body">
-        <p>
-          Full Stack Software Engineer with <strong>4+ years</strong> of
-          experience building scalable web applications using
-          <strong>React, Next.js, NestJS, Node.js, and Django</strong>. Skilled
-          in designing <strong>REST/GraphQL APIs</strong>, microservices
-          architectures, and Docker-based deployments. Experienced in delivering
-          enterprise platforms, marketplace systems, and AI-powered
-          applications.
-        </p>
+      <div class="about-grid">
+        <div class="about-body glass">
+          <p>
+            Full Stack Software Engineer with <strong>4+ years</strong> of
+            experience building scalable web applications using
+            <strong>React, Next.js, NestJS, Node.js, and Django</strong>.
+            Skilled in designing <strong>REST/GraphQL APIs</strong>,
+            microservices architectures, and Docker-based deployments.
+          </p>
+          <p style="margin-top: 1rem">
+            I've contributed to enterprise billing platforms, healthcare
+            dashboards, AI-powered chat systems, and marketplace products used
+            by real clients worldwide. Certified by <strong>Micro1</strong> as a
+            top-tier Senior Software Engineer, and an active contributor to the
+            developer community through GDSC.
+          </p>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight-card glass">
+            <i class="fas fa-rocket highlight-icon"></i>
+            <div>
+              <strong>Fast Delivery</strong>
+              <p>
+                Shipping production-grade code quickly without cutting corners.
+              </p>
+            </div>
+          </div>
+          <div class="highlight-card glass">
+            <i class="fas fa-brain highlight-icon"></i>
+            <div>
+              <strong>AI Integration</strong>
+              <p>LLMs, RAG pipelines, vector DBs — built into real products.</p>
+            </div>
+          </div>
+          <div class="highlight-card glass">
+            <i class="fas fa-layer-group highlight-icon"></i>
+            <div>
+              <strong>Full Stack Depth</strong>
+              <p>From pixel-perfect UIs to scalable cloud-native backends.</p>
+            </div>
+          </div>
+          <div class="highlight-card glass">
+            <i class="fas fa-shield-alt highlight-icon"></i>
+            <div>
+              <strong>Micro1 Vetted</strong>
+              <p>
+                Certified top-tier engineer through rigorous global screening.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ── EXPERIENCE ── -->
+    <!-- EXPERIENCE -->
     <section id="experience" class="section reveal-section">
       <div class="section-intro">
         <span class="section-label">Experience</span>
         <h2>Where I've built things that matter.</h2>
+        <p>
+          Real work, real clients, real impact — across enterprise platforms and
+          AI products.
+        </p>
       </div>
-
       <div class="timeline">
         <article class="timeline-item glass">
-          <span class="timeline-date">DEC 2022 – PRESENT</span>
-          <h3>Senior Software Engineer</h3>
-          <p class="timeline-company">
-            Nextbridge Pvt. Ltd. — Lahore, Pakistan
-          </p>
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-date">DEC 2022 – PRESENT</span>
+              <h3>Senior Software Engineer</h3>
+              <p class="timeline-company">
+                <i class="fas fa-building"></i> Nextbridge Pvt. Ltd. — Lahore,
+                Pakistan
+              </p>
+            </div>
+            <span class="timeline-badge">Current</span>
+          </div>
           <ul>
             <li>
               Developed scalable frontend applications using React and Next.js
@@ -320,11 +397,16 @@
             </li>
           </ul>
         </article>
-
         <article class="timeline-item glass">
-          <span class="timeline-date">JAN 2022 – DEC 2022</span>
-          <h3>Associate Software Engineer</h3>
-          <p class="timeline-company">Coduko — Lahore, Pakistan</p>
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-date">JAN 2022 – DEC 2022</span>
+              <h3>Associate Software Engineer</h3>
+              <p class="timeline-company">
+                <i class="fas fa-building"></i> Coduko — Lahore, Pakistan
+              </p>
+            </div>
+          </div>
           <ul>
             <li>Built responsive web applications using React and Redux</li>
             <li>
@@ -339,39 +421,42 @@
       </div>
     </section>
 
-    <!-- ── EDUCATION ── -->
+    <!-- EDUCATION -->
     <section id="education" class="section reveal-section">
       <div class="section-intro">
         <span class="section-label">Education</span>
         <h2>The foundation behind the work.</h2>
       </div>
-
       <div class="timeline">
         <article class="timeline-item glass">
           <span class="timeline-date">2018 – 2022</span>
           <h3>BS Computer Science</h3>
           <p class="timeline-company">
-            FAST National University of Computer and Emerging Sciences
+            <i class="fas fa-university"></i> FAST National University of
+            Computer and Emerging Sciences
           </p>
           <p class="timeline-detail">CGPA: 3.1</p>
         </article>
-
         <article class="timeline-item glass">
           <span class="timeline-date">2016 – 2018</span>
           <h3>Punjab Group of College</h3>
-          <p class="timeline-company">Sargodha, Pakistan</p>
+          <p class="timeline-company">
+            <i class="fas fa-school"></i> Sargodha, Pakistan
+          </p>
           <p class="timeline-detail">FSC Pre-Engineering</p>
         </article>
       </div>
     </section>
 
-    <!-- ── SKILLS ── -->
+    <!-- SKILLS -->
     <section id="skills" class="section reveal-section">
       <div class="section-intro">
         <span class="section-label">Skills</span>
         <h2>The tools I reach for every day.</h2>
+        <p>
+          A full-stack toolkit built through years of shipping real products.
+        </p>
       </div>
-
       <div class="skills-wrapper">
         <div class="skill-group">
           <h4 class="skill-group-label">Languages</h4>
@@ -390,7 +475,6 @@
             </div>
           </div>
         </div>
-
         <div class="skill-group">
           <h4 class="skill-group-label">Frontend</h4>
           <div class="skill-chips">
@@ -416,7 +500,6 @@
             </div>
           </div>
         </div>
-
         <div class="skill-group">
           <h4 class="skill-group-label">Backend</h4>
           <div class="skill-chips">
@@ -433,7 +516,7 @@
               ><span>NestJS</span>
             </div>
             <div class="skill-chip">
-              <i class="fab fa-python" style="color: #092e20"></i
+              <i class="fab fa-python" style="color: #2ea44f"></i
               ><span>Django</span>
             </div>
             <div class="skill-chip">
@@ -442,7 +525,6 @@
             </div>
           </div>
         </div>
-
         <div class="skill-group">
           <h4 class="skill-group-label">Databases &amp; Cloud</h4>
           <div class="skill-chips">
@@ -472,7 +554,6 @@
             </div>
           </div>
         </div>
-
         <div class="skill-group">
           <h4 class="skill-group-label">DevOps &amp; Tools</h4>
           <div class="skill-chips">
@@ -497,7 +578,6 @@
             </div>
           </div>
         </div>
-
         <div class="skill-group">
           <h4 class="skill-group-label">AI &amp; Architecture</h4>
           <div class="skill-chips">
@@ -521,49 +601,107 @@
               <i class="fas fa-cogs" style="color: #e91e63"></i
               ><span>Microservices</span>
             </div>
+            <div class="skill-chip">
+              <i class="fas fa-credit-card" style="color: #3dd9f5"></i
+              ><span>PayPal API</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── ACHIEVEMENTS ── -->
+    <!-- ACHIEVEMENTS & COMMUNITY -->
     <section id="activities" class="section reveal-section">
       <div class="section-intro">
-        <span class="section-label">Achievements</span>
-        <h2>Milestones that define the journey.</h2>
+        <span class="section-label">Achievements &amp; Community</span>
+        <h2>Milestones and communities that shaped the journey.</h2>
+        <p>
+          Recognition, open-source impact, and giving back to the developer
+          community.
+        </p>
       </div>
 
       <div class="achievements-list">
         <div class="achievement-item glass">
           <i class="fas fa-check-circle achievement-icon"></i>
           <p>
-            Delivered 5+ production web platforms used by enterprise clients
+            Delivered <strong>6+ production web platforms</strong> used by
+            enterprise clients globally
           </p>
         </div>
         <div class="achievement-item glass">
           <i class="fas fa-check-circle achievement-icon"></i>
           <p>
-            Built AI-powered document chat application using OpenAI and vector
-            databases
+            Built an <strong>AI-powered document chat application</strong> using
+            OpenAI, LangChain, and Pinecone vector databases
           </p>
         </div>
         <div class="achievement-item glass">
           <i class="fas fa-check-circle achievement-icon"></i>
           <p>
-            Contributed to development of an open-source billing &amp;
-            accounting platform
+            Contributed to development of an
+            <strong>open-source billing &amp; accounting platform</strong> with
+            AI-assisted reporting
           </p>
+        </div>
+        <div class="achievement-item glass">
+          <i
+            class="fas fa-certificate achievement-icon"
+            style="color: #f59e0b"
+          ></i>
+          <p>
+            Certified as a <strong>Senior Software Engineer by Micro1</strong> —
+            passing rigorous global talent screening
+          </p>
+        </div>
+      </div>
+
+      <!-- GDSC Community Card -->
+      <div class="community-card glass">
+        <div class="community-card-inner">
+          <div class="community-logo-wrap">
+            <img
+              src="Images/google.png"
+              alt="Google Developer Student Club"
+              class="community-logo"
+            />
+          </div>
+          <div class="community-info">
+            <span class="community-tag">Community</span>
+            <h3>Google Developer Student Club (GDSC)</h3>
+            <p class="community-role">
+              <i class="fas fa-users"></i>&nbsp; Core Team Member — Web
+              Developer
+            </p>
+            <p class="community-desc">
+              Served as a Core Team Member of GDSC at FAST University,
+              organizing technical workshops, hackathons, and developer events.
+              Led web development sessions, mentored fellow students, and
+              contributed to the club's web presence and community tools.
+            </p>
+            <div class="community-badges">
+              <span class="comm-badge"
+                ><i class="fab fa-google"></i> Google-backed</span
+              >
+              <span class="comm-badge"
+                ><i class="fas fa-chalkboard-teacher"></i> Workshop Leader</span
+              >
+              <span class="comm-badge"
+                ><i class="fas fa-code"></i> Web Developer</span
+              >
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ── PROJECTS ── -->
+    <!-- PROJECTS -->
     <section id="myWork" class="section reveal-section">
       <div class="section-intro">
         <span class="section-label">Projects</span>
         <h2>Selected work in web platforms and AI products.</h2>
         <p>
-          A curated set of projects that demonstrate enterprise delivery, modern
+          A curated set of projects demonstrating enterprise delivery, modern
           architecture, and AI-enhanced user experiences.
         </p>
       </div>
@@ -573,14 +711,15 @@
           <div class="project-rank">01</div>
           <h3>OSL — Open Source Billing &amp; Accounting</h3>
           <p>
-            Enterprise accounting platform with AI-assisted reporting and
-            role-based workflows.
+            Enterprise accounting platform with AI-assisted reporting,
+            multi-tenant support, and role-based workflows used by real
+            organizations.
           </p>
           <div class="project-tags">
-            <span class="project-tag">Next.js</span>
-            <span class="project-tag">TypeScript</span>
-            <span class="project-tag">Django</span>
-            <span class="project-tag">LLM</span>
+            <span class="project-tag">Next.js</span
+            ><span class="project-tag">TypeScript</span
+            ><span class="project-tag">Django</span
+            ><span class="project-tag">LLM</span>
           </div>
           <a
             href="https://gl.vteamslabs.com"
@@ -594,14 +733,14 @@
           <div class="project-rank">02</div>
           <h3>Marketplace Platform</h3>
           <p>
-            Microservices commerce system with real-time messaging and premium
-            seller features.
+            Microservices commerce system with real-time messaging via RabbitMQ,
+            premium seller features, and scalable Docker-based infrastructure.
           </p>
           <div class="project-tags">
-            <span class="project-tag">React</span>
-            <span class="project-tag">Redux</span>
-            <span class="project-tag">RabbitMQ</span>
-            <span class="project-tag">Docker</span>
+            <span class="project-tag">React</span
+            ><span class="project-tag">Redux</span
+            ><span class="project-tag">RabbitMQ</span
+            ><span class="project-tag">Docker</span>
           </div>
           <a
             href="https://marketplaceapi.vteamslabs.com"
@@ -615,14 +754,14 @@
           <div class="project-rank">03</div>
           <h3>CenSyn — Healthcare Management</h3>
           <p>
-            Patient record dashboards with scheduling, access control, and
-            analytics visualizations.
+            Patient record dashboards with scheduling, role-based access
+            control, and real-time analytics visualizations for medical teams.
           </p>
           <div class="project-tags">
-            <span class="project-tag">React</span>
-            <span class="project-tag">Material UI</span>
-            <span class="project-tag">Django</span>
-            <span class="project-tag">Analytics</span>
+            <span class="project-tag">React</span
+            ><span class="project-tag">Material UI</span
+            ><span class="project-tag">Django</span
+            ><span class="project-tag">Analytics</span>
           </div>
           <a href="https://censyn.com" target="_blank" class="project-cta"
             >Live Demo <i class="fas fa-arrow-right"></i
@@ -633,14 +772,14 @@
           <div class="project-rank">04</div>
           <h3>F&amp;B Inventory Management</h3>
           <p>
-            Inventory and purchase workflows built for foodservice operations
-            with advanced tracking.
+            Full-scale inventory and purchase order workflows for foodservice
+            operations — with advanced tracking, Swagger docs, and MongoDB.
           </p>
           <div class="project-tags">
-            <span class="project-tag">NestJS</span>
-            <span class="project-tag">Redux Toolkit</span>
-            <span class="project-tag">Swagger</span>
-            <span class="project-tag">MongoDB</span>
+            <span class="project-tag">NestJS</span
+            ><span class="project-tag">Redux Toolkit</span
+            ><span class="project-tag">Swagger</span
+            ><span class="project-tag">MongoDB</span>
           </div>
           <a
             href="https://fnbdev.vteamslabs.com"
@@ -654,14 +793,14 @@
           <div class="project-rank">05</div>
           <h3>Chat With Docs</h3>
           <p>
-            AI-based document chat system with semantic search, file management,
-            and prompt customization.
+            AI-powered document chat with semantic search via Pinecone, file
+            management, prompt customization, and OpenAI integration.
           </p>
           <div class="project-tags">
-            <span class="project-tag">Next.js</span>
-            <span class="project-tag">Pinecone</span>
-            <span class="project-tag">OpenAI</span>
-            <span class="project-tag">MongoDB</span>
+            <span class="project-tag">Next.js</span
+            ><span class="project-tag">Pinecone</span
+            ><span class="project-tag">OpenAI</span
+            ><span class="project-tag">MongoDB</span>
           </div>
           <a
             href="https://github.com/chowais181/chat-with-docs"
@@ -670,21 +809,96 @@
             >Source Code <i class="fas fa-arrow-right"></i
           ></a>
         </article>
+
+        <article class="project-card glass project-card--featured">
+          <div class="project-rank">06</div>
+          <h3>FoodOnline — Food Ordering Platform</h3>
+          <p>
+            Full-featured food ordering web app with authentication,
+            authorization, token verification, user-specific dashboards, menu
+            builder, marketplace, cart functionality, order placement, and
+            PayPal payment integration.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span
+            ><span class="project-tag">Django</span
+            ><span class="project-tag">PostgreSQL</span
+            ><span class="project-tag">PayPal API</span>
+          </div>
+          <a
+            href="https://github.com/chowais181/Django-Food-Online-Project"
+            target="_blank"
+            class="project-cta"
+            >Source Code <i class="fas fa-arrow-right"></i
+          ></a>
+        </article>
       </div>
     </section>
 
-    <!-- ── CONTACT ── -->
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="section reveal-section">
+      <div class="section-intro">
+        <span class="section-label">Certifications</span>
+        <h2>Verified skills, globally recognized.</h2>
+        <p>
+          Certifications that prove technical excellence and readiness for
+          senior-level engineering challenges.
+        </p>
+      </div>
+
+      <div class="cert-grid">
+        <div class="cert-card glass">
+          <div class="cert-image-wrap">
+            <img
+              src="Images/micro1.jpeg"
+              alt="Micro1 Senior Software Engineer Certification"
+              class="cert-image"
+            />
+            <div class="cert-image-overlay">
+              <a href="Images/micro1.jpeg" target="_blank" class="cert-view-btn"
+                ><i class="fas fa-expand-alt"></i> View Certificate</a
+              >
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-issuer">
+              <span class="cert-issuer-dot"></span>Micro1
+            </div>
+            <h3 class="cert-title">Senior Software Engineer</h3>
+            <p class="cert-desc">
+              Vetted through Micro1's rigorous technical screening process —
+              placing in the <strong>top tier</strong> of global software
+              engineering talent. This certification validates expertise in
+              full-stack architecture, system design, and production-grade
+              engineering at scale.
+            </p>
+            <div class="cert-badges">
+              <span class="cert-badge"
+                ><i class="fas fa-globe"></i> Global Screening</span
+              >
+              <span class="cert-badge"
+                ><i class="fas fa-star"></i> Top-Tier Engineer</span
+              >
+              <span class="cert-badge"
+                ><i class="fas fa-code"></i> Full Stack Verified</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
     <section id="contact" class="section reveal-section">
       <div class="section-intro">
         <span class="section-label">Contact</span>
         <h2>Let's build your next product together.</h2>
         <p>
-          I'm available for senior engineering roles, contract work, and product
+          Available for senior engineering roles, contract work, and product
           partnerships that need reliable architecture, AI integration, and
           scalable delivery.
         </p>
       </div>
-
       <div class="contact-cards">
         <article class="contact-card glass">
           <span class="contact-card-title"
@@ -719,12 +933,11 @@
       </div>
     </section>
 
-    <!-- ── FOOTER ── -->
+    <!-- FOOTER -->
     <footer class="site-footer">
       <p>Designed &amp; built by <strong>Awais Zahid</strong></p>
     </footer>
 
-    <!-- Statcounter -->
     <script type="text/javascript">
       var sc_project = 12121673;
       var sc_invisible = 1;
@@ -735,16 +948,15 @@
       src="https://www.statcounter.com/counter/counter.js"
       async
     ></script>
-    <noscript>
-      <div class="statcounter">
+    <noscript
+      ><div class="statcounter">
         <a title="Web Analytics" href="https://statcounter.com/" target="_blank"
           ><img
             class="statcounter"
             src="https://c.statcounter.com/12121673/0/206010bd/1/"
             alt="Web Analytics"
-        /></a>
-      </div>
-    </noscript>
+        /></a></div
+    ></noscript>
 
     <script src="js/main.js"></script>
   </body>
