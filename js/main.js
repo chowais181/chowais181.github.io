@@ -1,214 +1,122 @@
-jQuery(document).ready(function ($) {
-  //set animation timing
-  var animationDelay = 2500,
-    //loading bar effect
-    barAnimationDelay = 3800,
-    barWaiting = barAnimationDelay - 3000, //3000 is the duration of the transition on the loading bar - set in the scss/css file
-    //letters effect
-    lettersDelay = 50,
-    //type effect
-    typeLettersDelay = 150,
-    selectionDuration = 500,
-    typeAnimationDelay = selectionDuration + 800,
-    //clip effect
-    revealDuration = 600,
-    revealAnimationDelay = 1500;
+/* ============================================================
+   AWAIS ZAHID PORTFOLIO — main.js
+   - Scroll-triggered reveal animations (IntersectionObserver)
+   - Subtle tilt effect on hero card
+   - Active nav link highlight
+   - Navbar scroll opacity boost
+   ============================================================ */
 
-  initHeadline();
+document.addEventListener("DOMContentLoaded", function () {
+  /* ── 1. SCROLL REVEAL ─────────────────────────── */
+  var revealEls = document.querySelectorAll(
+    ".reveal-left, .reveal-right, .reveal-section",
+  );
 
-  function initHeadline() {
-    //insert <i> element for each letter of a changing word
-    singleLetters($(".cd-headline.letters").find("b"));
-    //initialise headline animation
-    animateHeadline($(".cd-headline"));
-  }
+  var revealObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px",
+    },
+  );
 
-  function singleLetters($words) {
-    $words.each(function () {
-      var word = $(this),
-        letters = word.text().split(""),
-        selected = word.hasClass("is-visible");
-      for (i in letters) {
-        if (word.parents(".rotate-2").length > 0)
-          letters[i] = "<em>" + letters[i] + "</em>";
-        letters[i] = selected
-          ? '<i class="in">' + letters[i] + "</i>"
-          : "<i>" + letters[i] + "</i>";
-      }
-      var newLetters = letters.join("");
-      word.html(newLetters).css("opacity", 1);
+  revealEls.forEach(function (el) {
+    revealObserver.observe(el);
+  });
+
+  /* ── 2. HERO TILT ─────────────────────────────── */
+  var tiltEl = document.getElementById("tilt");
+
+  if (tiltEl) {
+    tiltEl.addEventListener("mousemove", function (e) {
+      var rect = tiltEl.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      var xRot = -12 * ((y - rect.height / 2) / rect.height);
+      var yRot = 12 * ((x - rect.width / 2) / rect.width);
+      tiltEl.style.transform =
+        "perspective(700px) rotateX(" +
+        xRot +
+        "deg) rotateY(" +
+        yRot +
+        "deg) scale(1.02)";
+    });
+
+    tiltEl.addEventListener("mouseleave", function () {
+      tiltEl.style.transform =
+        "perspective(700px) rotateX(0) rotateY(0) scale(1)";
     });
   }
 
-  function animateHeadline($headlines) {
-    var duration = animationDelay;
-    $headlines.each(function () {
-      var headline = $(this);
+  /* ── 3. NAVBAR SCROLL STYLE ───────────────────── */
+  var navbar = document.getElementById("myNavbar");
 
-      //trigger animation
-      setTimeout(function () {
-        hideWord(headline.find(".is-visible").eq(0));
-      }, duration);
+  if (navbar) {
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (window.scrollY > 60) {
+          navbar.style.background = "rgba(6, 9, 16, 0.96)";
+          navbar.style.boxShadow = "0 2px 24px rgba(0,0,0,0.4)";
+        } else {
+          navbar.style.background = "";
+          navbar.style.boxShadow = "";
+        }
+      },
+      { passive: true },
+    );
+  }
+
+  /* ── 4. ACTIVE NAV LINKS ─────────────────────── */
+  var sections = document.querySelectorAll("section[id]");
+  var navLinks = document.querySelectorAll(".nav-link");
+
+  var sectionObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (link) {
+            link.style.color = "";
+          });
+          var active = document.querySelector(
+            '.nav-link[href="#' + entry.target.id + '"]',
+          );
+          if (active) {
+            active.style.color = "#ffffff";
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.35,
+    },
+  );
+
+  sections.forEach(function (section) {
+    sectionObserver.observe(section);
+  });
+
+  /* ── 5. SMOOTH ANCHOR OFFSET (for fixed navbar) ── */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener("click", function (e) {
+      var target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        e.preventDefault();
+        var navHeight = navbar ? navbar.offsetHeight : 72;
+        var top =
+          target.getBoundingClientRect().top +
+          window.pageYOffset -
+          navHeight -
+          16;
+        window.scrollTo({ top: top, behavior: "smooth" });
+      }
     });
-  }
-
-  function hideWord($word) {
-    var nextWord = takeNext($word);
-
-    if ($word.parents(".cd-headline").hasClass("type")) {
-      var parentSpan = $word.parent(".cd-words-wrapper");
-      parentSpan.addClass("selected").removeClass("waiting");
-      setTimeout(function () {
-        parentSpan.removeClass("selected");
-        $word
-          .removeClass("is-visible")
-          .addClass("is-hidden")
-          .children("i")
-          .removeClass("in")
-          .addClass("out");
-      }, selectionDuration);
-      setTimeout(function () {
-        showWord(nextWord, typeLettersDelay);
-      }, typeAnimationDelay);
-    } else if ($word.parents(".cd-headline").hasClass("letters")) {
-      var bool =
-        $word.children("i").length >= nextWord.children("i").length
-          ? true
-          : false;
-      hideLetter($word.find("i").eq(0), $word, bool, lettersDelay);
-      showLetter(nextWord.find("i").eq(0), nextWord, bool, lettersDelay);
-    } else if ($word.parents(".cd-headline").hasClass("clip")) {
-      $word
-        .parents(".cd-words-wrapper")
-        .animate({ width: "2px" }, revealDuration, function () {
-          switchWord($word, nextWord);
-          showWord(nextWord);
-        });
-    } else if ($word.parents(".cd-headline").hasClass("loading-bar")) {
-      $word.parents(".cd-words-wrapper").removeClass("is-loading");
-      switchWord($word, nextWord);
-      setTimeout(function () {
-        hideWord(nextWord);
-      }, barAnimationDelay);
-      setTimeout(function () {
-        $word.parents(".cd-words-wrapper").addClass("is-loading");
-      }, barWaiting);
-    } else {
-      switchWord($word, nextWord);
-      setTimeout(function () {
-        hideWord(nextWord);
-      }, animationDelay);
-    }
-  }
-
-  function showWord($word, $duration) {
-    if ($word.parents(".cd-headline").hasClass("type")) {
-      showLetter($word.find("i").eq(0), $word, false, $duration);
-      $word.addClass("is-visible").removeClass("is-hidden");
-    } else if ($word.parents(".cd-headline").hasClass("clip")) {
-      $word
-        .parents(".cd-words-wrapper")
-        .animate({ width: $word.width() + 10 }, revealDuration, function () {
-          setTimeout(function () {
-            hideWord($word);
-          }, revealAnimationDelay);
-        });
-    }
-  }
-
-  function hideLetter($letter, $word, $bool, $duration) {
-    $letter.removeClass("in").addClass("out");
-
-    if (!$letter.is(":last-child")) {
-      setTimeout(function () {
-        hideLetter($letter.next(), $word, $bool, $duration);
-      }, $duration);
-    } else if ($bool) {
-      setTimeout(function () {
-        hideWord(takeNext($word));
-      }, animationDelay);
-    }
-
-    if ($letter.is(":last-child") && $("html").hasClass("no-csstransitions")) {
-      var nextWord = takeNext($word);
-      switchWord($word, nextWord);
-    }
-  }
-
-  function showLetter($letter, $word, $bool, $duration) {
-    $letter.addClass("in").removeClass("out");
-
-    if (!$letter.is(":last-child")) {
-      setTimeout(function () {
-        showLetter($letter.next(), $word, $bool, $duration);
-      }, $duration);
-    } else {
-      if ($word.parents(".cd-headline").hasClass("type")) {
-        setTimeout(function () {
-          $word.parents(".cd-words-wrapper").addClass("waiting");
-        }, 200);
-      }
-      if (!$bool) {
-        setTimeout(function () {
-          hideWord($word);
-        }, animationDelay);
-      }
-    }
-  }
-
-  function takeNext($word) {
-    return !$word.is(":last-child")
-      ? $word.next()
-      : $word.parent().children().eq(0);
-  }
-
-  function takePrev($word) {
-    return !$word.is(":first-child")
-      ? $word.prev()
-      : $word.parent().children().last();
-  }
-
-  function switchWord($oldWord, $newWord) {
-    $oldWord.removeClass("is-visible").addClass("is-hidden");
-    $newWord.removeClass("is-hidden").addClass("is-visible");
-  }
-});
-
-// Tilt Effect
-
-let el = document.getElementById("tilt");
-
-const height = el.clientHeight;
-const width = el.clientWidth;
-
-el.addEventListener("mousemove", handleMove);
-
-function handleMove(e) {
-  const xVal = e.layerX;
-  const yVal = e.layerY;
-
-  const yRotation = 20 * ((xVal - width / 2) / width);
-
-  const xRotation = -20 * ((yVal - height / 2) / height);
-
-  const string =
-    "perspective(500px) scale(1.1) rotateX(" +
-    xRotation +
-    "deg) rotateY(" +
-    yRotation +
-    "deg)";
-
-  el.style.transform = string;
-}
-
-el.addEventListener("mouseout", function () {
-  el.style.transform = "perspective(500px) scale(1) rotateX(0) rotateY(0)";
-});
-
-el.addEventListener("mousedown", function () {
-  el.style.transform = "perspective(500px) scale(0.9) rotateX(0) rotateY(0)";
-});
-
-el.addEventListener("mouseup", function () {
-  el.style.transform = "perspective(500px) scale(0.5) rotateX(0) rotateY(0)";
+  });
 });
